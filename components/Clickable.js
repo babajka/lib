@@ -7,26 +7,29 @@ const Clickable = ({ tag, onClick, children, ...props }) => {
     onClick,
   };
 
-  elementProps.role = 'button';
-  elementProps.tabIndex = 0;
-  elementProps.onKeyPress = event => {
-    if (event.key === 'Enter') {
-      onClick(event);
-    }
-  };
+  if (onClick) {
+    elementProps.role = 'button';
+    elementProps.tabIndex = 0;
+    elementProps.onKeyPress = event => {
+      if (event.key === 'Enter') {
+        onClick(event);
+      }
+    };
+  }
 
   return React.createElement(tag, elementProps, children);
 };
 
 Clickable.propTypes = {
   tag: PropTypes.string,
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
   children: PropTypes.node,
 };
 
 Clickable.defaultProps = {
   tag: 'span',
   children: null,
+  onClick: null,
 };
 
 export default Clickable;
