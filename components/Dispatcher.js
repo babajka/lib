@@ -3,17 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 class Dispatcher extends Component {
-  static propTypes = {
-    action: PropTypes.func.isRequired,
-    dispatch: PropTypes.func.isRequired,
-    children: PropTypes.func.isRequired,
-    onSuccess: PropTypes.func,
-  };
-
-  static defaultProps = {
-    onSuccess: () => {},
-  };
-
   state = {
     result: null,
     error: null,
@@ -42,5 +31,16 @@ class Dispatcher extends Component {
     return children({ onDispatch: this.handleDispatch, result, error, pending });
   }
 }
+
+Dispatcher.propTypes = {
+  action: PropTypes.func.isRequired,
+  dispatch: PropTypes.func.isRequired,
+  children: PropTypes.func.isRequired,
+  onSuccess: PropTypes.func,
+};
+
+Dispatcher.defaultProps = {
+  onSuccess: () => {},
+};
 
 export default connect()(Dispatcher);

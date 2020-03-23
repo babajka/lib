@@ -1,34 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-class StopClickPropagation extends Component {
-  static propTypes = {
-    tag: PropTypes.string,
-    className: PropTypes.string,
-    children: PropTypes.node.isRequired,
-  };
+const StopClickPropagation = ({ tag, className, children }) =>
+  React.createElement(
+    tag,
+    {
+      className,
+      onClick: event => event.stopPropagation(),
+    },
+    children
+  );
 
-  static defaultProps = {
-    tag: 'div',
-    className: '',
-  };
+StopClickPropagation.propTypes = {
+  tag: PropTypes.string,
+  className: PropTypes.string,
+  children: PropTypes.node.isRequired,
+};
 
-  handleStopPropagation = event => {
-    event.stopPropagation();
-  };
-
-  render() {
-    const { tag, className, children } = this.props;
-
-    return React.createElement(
-      tag,
-      {
-        className,
-        onClick: this.handleStopPropagation,
-      },
-      children
-    );
-  }
-}
-
-export default StopClickPropagation;
+StopClickPropagation.defaultProps = {
+  tag: 'div',
+  className: '',
+};

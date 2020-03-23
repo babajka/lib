@@ -9,10 +9,7 @@ export default () => {
     if (isInQuery) {
       // https://regex101.com/r/lROOeI/2
       const regex = new RegExp(`(&|/?)${p}(_\\w+)?=([_\\w0-9]+)`, 'g');
-      newUrl = newUrl
-        .replace(regex, '')
-        .replace(/\?&+/, '?')
-        .replace(/\?$/, '');
+      newUrl = newUrl.replace(regex, '').replace(/\?&+/, '?').replace(/\?$/, '');
       replace = true;
     }
   });

@@ -1,11 +1,7 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export default class OnEscape extends Component {
-  static propTypes = {
-    action: PropTypes.func.isRequired,
-  };
-
+class OnEscape extends Component {
   componentDidMount() {
     window.addEventListener('keydown', this.handleKeyDown);
   }
@@ -25,3 +21,9 @@ export default class OnEscape extends Component {
     return null;
   }
 }
+
+OnEscape.propTypes = {
+  action: PropTypes.func.isRequired,
+};
+
+export default OnEscape;
