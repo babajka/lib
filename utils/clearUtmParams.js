@@ -1,4 +1,4 @@
-export default () => {
+const clearUtmParams = () => {
   const { location, history } = window;
   const params = ['utm', 'fbclid'];
   let newUrl = location.toString();
@@ -18,3 +18,5 @@ export default () => {
     history.replaceState({}, '', newUrl);
   }
 };
+
+export default clearUtmParams;
