@@ -1,4 +1,4 @@
-const YOUTUBE_URL_REGEX = /youtube\.com\/watch\?v=([a-zA-Z0-9_-]{11})/;
+const YOUTUBE_URL_REGEX = /.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=)([^#&?]{11}).*/;
 
 const parseUrl = url => {
   const match = YOUTUBE_URL_REGEX.exec(url);
