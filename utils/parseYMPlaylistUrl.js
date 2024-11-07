@@ -6,7 +6,7 @@ const parseUrl = url => {
     return null;
   }
   const [_, playlistUsername, playlistId] = match;
-  return { playlistUsername, playlistId } ;
+  return { playlistUsername, playlistId };
 };
 
 export default parseUrl;
